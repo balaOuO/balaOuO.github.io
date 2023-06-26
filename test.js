@@ -8,7 +8,7 @@ var now_cycle = 0, total_cycle;
 var speed = 0.001;
 var max_speed;
 var stop_flag = false;
-var start_btn = getElementById("start_but");
+var start_btn = document.getElementById("start_but");
 
 function handleFiles(files) {
     const preview = document.getElementById("preview");
@@ -99,4 +99,25 @@ function control(element) {
         alert("圖都沒上傳是在start個雞巴");
     }
 
+}
+
+var can_click = true;
+var click_shark_time = 0;
+function click_shark(element) {
+    var head = document.getElementById("shark_label");
+    if (can_click) {
+        click_shark_time++;
+        if (click_shark_time >= 10) {
+            alert("鯊魚 : 有病喔一直點");
+        }
+        can_click = false;
+        element.style = "width:255px;height:110px;";
+        head.innerHTML = `<span style="font-size: 50px;">點鯊小</span>`
+        setTimeout(function () {
+            can_click = true;
+            element.style = "width:510px;height:220px;";
+            head.innerHTML = `<span style="font-size: 100px;">請點擊鯊魚</span>`
+        }, 1500);
+
+    }
 }
