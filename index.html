@@ -4,32 +4,33 @@
 <head>
     <meta charset="utf-8" />
     <title>web lottery</title>
+    <link rel="stylesheet" href="index.css" />
 </head>
 
-<body>
-    <h1>ONLINE_DISCORD_LOTTERY</h1>
-    <div>
-        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/ratchet/2.0.2/css/ratchet.css" rel="stylesheet" /> -->
-        <!-- <label for="imageInput" class="btn">upload image</label> -->
-        <button style="width:240px;height:80px;border:2px #9999FF dashed;"
-            onclick="document.getElementById('imageInput').click()">
-            <span style="font-size: 20px;">upload image</span>
-        </button>
+<body aria-hidden="false" style="padding: 0px;">
+    <header>
+        <div class="my_github">
+            <img class="github_head_picture" src="github_head.jpg">
+            <a class="my_github_link" href="https://github.com/balaOuO">balaOuO</a>
+        </div>
+        <h1></h1>
+    </header>
+
+    <div class="main_screen">
+        <button class="main_btn" onclick="document.getElementById('imageInput').click()">upload image</button>
 
         <input type="file" id="imageInput" style="display: none;" name="imageInput" onchange="handleFiles(this.files)"
             accept="image/png , image/jpeg">
 
-        <button id="start_but" style="width:240px;height:80px;border:2px #9999FF dashed;" onclick="control(this)">
-            <span style="font-size: 20px;">start</span>
-        </button>
+        <button class="main_btn" id="start_but" onclick="control(this)">start</button>
 
     </div>
 
     <br />
 
     <div style="position: relative;">
-        <img id="preview" style="position: absolute; top: 0; left: 0;">
-        <canvas id="canvas" style="position: absolute; top: 0; left: 0;"></canvas>
+        <img class="main_img" id="preview">
+        <canvas class="main_img" id="canvas"></canvas>
     </div>
 
     <script src="index.js"></script>

@@ -75,7 +75,7 @@ function control(element) {
         if (button_isblue) {
 
             button_isblue = false;
-            element.style = "width:240px;height:80px;border:2px #860d09 dashed;";
+            element.style.borderColor = "#860d09";
             element.innerHTML = `<span style="font-size: 20px;">stop</span>`;
 
             max_speed = Math.random() * 10 + 15;
@@ -89,7 +89,7 @@ function control(element) {
         }
         else if (!button_isblue) {
             button_isblue = true;
-            element.style = "width:240px;height:80px;border:2px #9999FF dashed;";
+            element.style.borderColor = "#9999FF";
             element.innerHTML = `<span style="font-size: 20px;">start</span>`;
 
             clearInterval(stop_flag);
