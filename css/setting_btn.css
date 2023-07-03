@@ -1,0 +1,138 @@
+.line {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    display: block;
+    padding: 16px;
+    margin: 15px;
+    position: absolute;
+    z-index: 1;
+    border-radius: 6px;
+    opacity: 0.5;
+}
+
+.menu-list {
+    background-color: #09203f;
+}
+
+.line .menu,
+.line .menu::before,
+.line .menu::after {
+    background: azure;
+    content: '';
+    display: block;
+    height: 2.5px;
+    position: absolute;
+    transition: background ease .3s, top ease .3s .3s, transform ease .3s;
+    width: 20px;
+    z-index: 2;
+    opacity: 1;
+}
+
+.line .menu {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50%;
+}
+
+.line .menu::before {
+    top: -6px;
+}
+
+.line .menu::after {
+    top: 6px;
+}
+
+.line:hover {
+    background-color: #537895;
+}
+
+/*
+點選選單變叉叉
+*/
+
+#menu:checked+.line .menu {
+    background: transparent;
+}
+
+#menu:checked+.line .menu::before {
+    transform: rotate(45deg);
+}
+
+#menu:checked+.line .menu::after {
+    transform: rotate(-45deg);
+}
+
+#menu:checked+.line .menu::before,
+#menu:checked+.line .menu::after {
+    top: 0;
+    transition: top ease .3s, transform ease .3s .3s;
+}
+
+/*
+選單向外推
+*/
+#menu:checked~.menu-list {
+    width: 500px;
+    height: 500px;
+}
+
+.menu-list {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    background-color: #09203f;
+    border: 5px #9999FF groove;
+    border-radius: 10px;
+
+    margin: 10px;
+
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, .1); */
+    position: absolute;
+    z-index: 0;
+    transition: all .6s;
+    overflow: hidden;
+}
+
+.menu-list ul {
+    list-style: none;
+    margin-left: 60px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.setting {
+    display: block;
+    width: 100px;
+    /* margin: 0px; */
+    margin-bottom: 10px;
+    margin-left: 0px;
+    float: left;
+}
+
+.setting label {
+    text-align: left;
+    margin: 0px;
+    white-space: nowrap;
+    position: relative;
+}
+
+.setting input {
+    float: left;
+    margin: 0px;
+}
+
+input#menu {
+    display: none;
+}
+
+#save {
+    width: 120px;
+    height: 40px;
+    margin: 0px;
+    font-size: 20px;
+    background-color: #4200bdb8;
+    border-radius: 10px;
+    position: relative;
+}

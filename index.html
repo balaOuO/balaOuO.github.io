@@ -3,14 +3,15 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>web lottery</title>
-    <link rel="stylesheet" href="index.css" />
+    <title>Online picture lottery</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/setting_btn.css" />
 </head>
 
 <body>
     <header>
         <div class="my_github">
-            <img class="github_head_picture" src="github_head.jpg">
+            <img class="github_head_picture" src="image/github_head.jpg">
             <a class="my_github_link" href="https://github.com/balaOuO">balaOuO</a>
         </div>
         <h1>Online Picture Lottery</h1>
@@ -23,6 +24,31 @@
             accept="image/png , image/jpeg">
 
         <button class="main_btn" id="start_but" onclick="control(this)">start</button>
+
+        <!-- <div class="main_btn" id="setting_btn" tabindex="0">
+            <img src="image/control.png">
+
+        </div> -->
+        <input type="checkbox" id="menu">
+        <label for="menu" class="line">
+            <div class="menu"></div>
+        </label>
+
+        <div class="menu-list">
+            <ul>
+                <li class="setting">
+                    <label for="img_size">Image size (Coming soon)</label>
+                    <input type="range" id="img_size">
+                </li>
+                <li class="setting"">
+                    <label for=" line_color">Line color (Coming soon)</label>
+                    <input type="color">
+                </li>
+                <li class="setting">
+                    <button id="save">Save</button>
+                </li>
+            </ul>
+        </div>
 
     </div>
 

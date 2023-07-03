@@ -53,16 +53,26 @@ header h1 {
 
 .main_screen {
     text-align: center;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flexbox;
+    z-index: 1;
 }
 
 .main_btn {
-    width: 180px;
-    height: 60px;
+    width: 300%;
+    height: 100%;
     background-color: #09203f;
     border: 5px #9999FF groove;
     border-radius: 10px;
+
     margin: 10px;
     font-size: 20px;
+    vertical-align: bottom;
+    box-sizing: border-box;
+
+    display: inline-block;
 }
 
 .main_btn:hover {
@@ -70,15 +80,52 @@ header h1 {
     background-color: #537895;
 }
 
+/* #setting_btn {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+
+    transform-origin: top left;
+    transition: height 0.5s, width 0.5s;
+}
+
+#setting_btn figure {
+    width: 60px;
+    height: 60px;
+}
+
+#setting_btn figure img {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    object-fit: contain;
+    position: absolute;
+}
+
+#setting_btn:focus img {
+    visibility: hidden;
+}
+
+#setting_btn:focus {
+    width: 300%;
+    height: 600%;
+    background-color: #09203f;
+    border-style: solid;
+} */
+
 .main_img {
     position: absolute;
 
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    margin-bottom: 50px;
+    bottom: 50px;
 
     border-radius: 15px;
     left: auto;
-    /* border: 5px #9999FF solid; */
+    z-index: 0;
+    /* border-style: solid;
+    visibility: hidden; */
 }
