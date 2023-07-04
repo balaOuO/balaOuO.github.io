@@ -64,7 +64,9 @@ header h1 {
     width: 300%;
     height: 100%;
     background-color: #09203f;
-    border: 5px #9999FF groove;
+    /* border: 5px #9999FF groove; */
+    border: 0;
+    outline: 3px #09203f solid;
     border-radius: 10px;
 
     margin: 10px;
@@ -73,11 +75,16 @@ header h1 {
     box-sizing: border-box;
 
     display: inline-block;
+
+    transition: outline-offset 0.3s, background-color 0.3s;
 }
 
-.main_btn:hover {
-    border-style: solid;
+.main_btn:hover,
+.main_btn:focus {
+    /* border-style: solid; */
     background-color: #537895;
+    outline-color: #9999FF;
+    outline-offset: 5px;
 }
 
 /* #setting_btn {

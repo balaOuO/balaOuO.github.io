@@ -10,6 +10,24 @@ var max_speed;
 var stop_flag = false;
 var start_btn = document.getElementById("start_but");
 
+var line_color = "#FFCCCC";
+var line_height = 5;
+var image_size = 1;
+
+function save() {
+    if (!is_upload) {
+        alert("Please upload the image first.")
+    }
+    else if (!button_isblue) {
+        alert("Please stop operating first.")
+    }
+    else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = line_color;
+        ctx.fillRect(0, line_pos, img_w, line_height);
+    }
+}
+
 function handleFiles(files) {
     const preview = document.getElementById("preview");
     const file = files[0];
@@ -26,6 +44,12 @@ function handleFiles(files) {
         img_h = preview.height;
         console.log(img_h, img_w);
         line_pos = Math.random() * img_h;
+        canvars = document.getElementById("canvas");
+        canvars.width = img_w;
+        canvars.height = img_h;
+        ctx = canvars.getContext("2d");
+        ctx.fillStyle = line_color;
+        ctx.fillRect(0, line_pos, img_w, line_height);
     };
     reader.readAsDataURL(file);
 }
@@ -49,8 +73,8 @@ function draw() {
     now_cycle += 1;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#FFCCCC";
-    ctx.fillRect(0, line_pos, img_w, 5);
+    ctx.fillStyle = line_color;
+    ctx.fillRect(0, line_pos, img_w, line_height);
 
     speed = speed_curve();
     line_pos += speed;
@@ -60,18 +84,17 @@ function draw() {
     }
 
     if (speed <= 0) {
-        alert("finish!")
+        // alert("finish!")
+        control();
         clearInterval(stop_flag);
     }
 
 }
 
-function control(element) {
+function control() {
+    element = document.getElementById("start_but");
     if (is_upload) {
-        canvars = document.getElementById("canvas");
-        canvars.width = img_w;
-        canvars.height = img_h;
-        ctx = canvars.getContext("2d");
+
         if (button_isblue) {
 
             button_isblue = false;
@@ -96,7 +119,7 @@ function control(element) {
         }
     }
     else {
-        alert("圖都沒上傳是在start個雞巴");
+        alert("Please upload the image first.");
     }
 
 }

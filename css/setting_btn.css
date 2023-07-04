@@ -4,16 +4,18 @@
     cursor: pointer;
     display: block;
     padding: 16px;
-    margin: 15px;
+    margin: 10px;
     position: absolute;
     z-index: 1;
-    border-radius: 6px;
+    border-radius: 10px;
     opacity: 0.5;
+
+    transition: background-color 0.3s;
 }
 
-.menu-list {
+/* .menu-list {
     background-color: #09203f;
-}
+} */
 
 .line .menu,
 .line .menu::before,
@@ -75,14 +77,25 @@
 #menu:checked~.menu-list {
     width: 500px;
     height: 500px;
+    outline-color: #9999FF;
+    outline-offset: 5px;
 }
+
+.line:hover+.menu-list {
+    outline-color: #9999FF;
+    outline-offset: 5px;
+}
+
 
 .menu-list {
     width: 48px;
     height: 48px;
     position: absolute;
     background-color: #09203f;
-    border: 5px #9999FF groove;
+    /* border: 5px #09203f solid; */
+    /* #9999FF */
+    border: 0;
+    outline: 3px #09203f solid;
     border-radius: 10px;
 
     margin: 10px;
@@ -90,7 +103,7 @@
     /* box-shadow: 0 2px 4px rgba(0, 0, 0, .1); */
     position: absolute;
     z-index: 0;
-    transition: all .6s;
+    transition: all .6s, outline-offset 0.3s;
     overflow: hidden;
 }
 

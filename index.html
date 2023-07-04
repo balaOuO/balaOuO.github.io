@@ -23,7 +23,7 @@
         <input type="file" id="imageInput" style="display: none;" name="imageInput" onchange="handleFiles(this.files)"
             accept="image/png , image/jpeg">
 
-        <button class="main_btn" id="start_but" onclick="control(this)">start</button>
+        <button class="main_btn" id="start_but" onclick="control()">start</button>
 
         <!-- <div class="main_btn" id="setting_btn" tabindex="0">
             <img src="image/control.png">
@@ -38,14 +38,14 @@
             <ul>
                 <li class="setting">
                     <label for="img_size">Image size (Coming soon)</label>
-                    <input type="range" id="img_size">
+                    <input type="range" id="img_size" value="1" min="0.1" max="5" step="0.1">
                 </li>
                 <li class="setting"">
                     <label for=" line_color">Line color (Coming soon)</label>
-                    <input type="color">
+                    <input type="color" value="#FFCCCC">
                 </li>
                 <li class="setting">
-                    <button id="save">Save</button>
+                    <button id="save" onclick="save()">Save</button>
                 </li>
             </ul>
         </div>
