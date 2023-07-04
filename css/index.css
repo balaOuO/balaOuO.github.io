@@ -1,8 +1,9 @@
 html {
     /* background-image: linear-gradient(to top, #09203f 0%, #537895 100%); */
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
 }
 
 * {
@@ -14,31 +15,39 @@ body {
     background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
     background-attachment: fixed;
     margin: 0;
+    padding: 0;
+    position: relative;
+    /* width: 100vw;
+    height: 100vh; */
 }
 
 
-header {
+.header {
     background-color: black;
     padding: 15px;
+    margin: 0;
     display: flex;
+    width: 100%;
     align-items: center;
+    /* box-sizing: content-box; */
+    /* overflow-x: hidden; */
 }
 
-header .my_github {
+.header .my_github {
     background-color: #292f38;
     padding: 10px;
     border-radius: 30px;
     float: left;
 }
 
-header .github_head_picture {
+.header .github_head_picture {
     width: 30px;
     height: 30px;
     border-radius: 15px;
     float: left;
 }
 
-header .my_github_link {
+.header .my_github_link {
     font-size: 18px;
     text-align: center;
     margin-left: 10px;
@@ -46,23 +55,33 @@ header .my_github_link {
     line-height: 30px;
 }
 
-header h1 {
+.header h1 {
     margin: 0px;
     margin-left: 20px;
+    width: 50%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
 }
 
 .main_screen {
-    text-align: center;
+    /* text-align: center; */
     position: relative;
-    width: 60px;
-    height: 60px;
+    width: 200px;
+    height: 240px;
     display: flexbox;
     z-index: 1;
+    flex: 0 0 auto;
 }
 
 .main_btn {
-    width: 300%;
-    height: 100%;
+    width: 180px;
+    height: 60px;
     background-color: #09203f;
     /* border: 5px #9999FF groove; */
     border: 0;
@@ -86,51 +105,26 @@ header h1 {
     outline-offset: 5px;
 }
 
-/* #setting_btn {
-    width: 100%;
+.img_screen {
+    position: relative;
+    text-align: center;
+    flex-shrink: 1;
+    margin: 0px;
+    overflow: hidden;
+    flex: 1;
+    /* display: inline-block;
+    text-align: center; */
+    /* width: 60px; */
     height: 100%;
-    position: absolute;
-    left: 0%;
-
-    transform-origin: top left;
-    transition: height 0.5s, width 0.5s;
 }
-
-#setting_btn figure {
-    width: 60px;
-    height: 60px;
-}
-
-#setting_btn figure img {
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    object-fit: contain;
-    position: absolute;
-}
-
-#setting_btn:focus img {
-    visibility: hidden;
-}
-
-#setting_btn:focus {
-    width: 300%;
-    height: 600%;
-    background-color: #09203f;
-    border-style: solid;
-} */
 
 .main_img {
     position: absolute;
-
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 50px;
-
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
     border-radius: 15px;
-    left: auto;
+    left: 0;
     z-index: 0;
     /* border-style: solid;
     visibility: hidden; */

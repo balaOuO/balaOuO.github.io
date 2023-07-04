@@ -42,7 +42,6 @@ function handleFiles(files) {
     preview.onload = function () {
         img_w = preview.width;
         img_h = preview.height;
-        console.log(img_h, img_w);
         line_pos = Math.random() * img_h;
         canvars = document.getElementById("canvas");
         canvars.width = img_w;

@@ -13,10 +13,6 @@
     transition: background-color 0.3s;
 }
 
-/* .menu-list {
-    background-color: #09203f;
-} */
-
 .line .menu,
 .line .menu::before,
 .line .menu::after {
