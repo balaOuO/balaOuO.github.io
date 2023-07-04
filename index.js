@@ -16,10 +16,10 @@ var image_size = 1;
 
 function save() {
     if (!is_upload) {
-        alert("Please upload the image first.")
+        alert("Please upload the image first.");
     }
     else if (!button_isblue) {
-        alert("Please stop operating first.")
+        alert("Please stop operating first.");
     }
     else {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -98,8 +98,9 @@ function control() {
         if (button_isblue) {
 
             button_isblue = false;
-            element.style.borderColor = "#860d09";
-            element.innerHTML = `<span style="font-size: 20px;">stop</span>`;
+            // element.style.outlineColor = "#860d09";
+            // element.style.color = "#860d09";
+            element.innerHTML = `<span style=" font-size: 20px; color : #FF9797; ">stop</span>`;
 
             max_speed = Math.random() * 10 + 15;
             total_cycle = Math.random() * 200 + 150;
@@ -112,7 +113,7 @@ function control() {
         }
         else if (!button_isblue) {
             button_isblue = true;
-            element.style.borderColor = "#9999FF";
+            // element.style.outlineColor = "#09203f";
             element.innerHTML = `<span style="font-size: 20px;">start</span>`;
 
             clearInterval(stop_flag);

@@ -79,8 +79,7 @@ header h1 {
     transition: outline-offset 0.3s, background-color 0.3s;
 }
 
-.main_btn:hover,
-.main_btn:focus {
+.main_btn:hover {
     /* border-style: solid; */
     background-color: #537895;
     outline-color: #9999FF;
