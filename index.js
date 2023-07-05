@@ -1,6 +1,6 @@
 var button_isblue = true;
-var canvars;
-var ctx;
+var canvars = document.getElementById("canvas");
+var ctx = canvars.getContext("2d");;
 var img_h, img_w;
 var is_upload = false;
 var line_pos = 0;
@@ -9,10 +9,26 @@ var speed = 0.001;
 var max_speed;
 var stop_flag = false;
 var start_btn = document.getElementById("start_but");
+const preview = document.getElementById("preview");
 
 var line_color = "#FFCCCC";
 var line_height = 5;
 var image_size = 1;
+
+
+const observer = new ResizeObserver(function (entries) {
+    img_w = preview.width;
+    img_h = preview.height;
+    canvars.width = img_w;
+    canvars.height = img_h;
+    ctx.clearRect(0, 0, img_w, img_h);
+    ctx.fillStyle = line_color;
+    ctx.fillRect(0, line_pos, img_w, line_height);
+});
+
+observer.observe(preview, {
+    box: "border-box",
+});
 
 function save() {
     if (!is_upload) {
@@ -22,14 +38,13 @@ function save() {
         alert("Please stop operating first.");
     }
     else {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, img_w, img_h);
         ctx.fillStyle = line_color;
         ctx.fillRect(0, line_pos, img_w, line_height);
     }
 }
 
 function handleFiles(files) {
-    const preview = document.getElementById("preview");
     const file = files[0];
     const reader = new FileReader();
     is_upload = true;
@@ -43,12 +58,11 @@ function handleFiles(files) {
         img_w = preview.width;
         img_h = preview.height;
         line_pos = Math.random() * img_h;
-        canvars = document.getElementById("canvas");
-        canvars.width = img_w;
-        canvars.height = img_h;
-        ctx = canvars.getContext("2d");
-        ctx.fillStyle = line_color;
-        ctx.fillRect(0, line_pos, img_w, line_height);
+        // canvars.width = img_w;
+        // canvars.height = img_h;
+        // ctx = canvars.getContext("2d");
+        // ctx.fillStyle = line_color;
+        // ctx.fillRect(0, line_pos, img_w, line_height);
     };
     reader.readAsDataURL(file);
 }
