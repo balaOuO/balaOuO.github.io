@@ -118,6 +118,9 @@
     margin-bottom: 10px;
     margin-left: 0px;
     float: left;
+    /* display: flex;
+    align-items: center;
+    flex-wrap: wrap; */
 }
 
 .setting label {
@@ -125,11 +128,14 @@
     margin: 0px;
     white-space: nowrap;
     position: relative;
+    /* flex-basis: 100%; */
+    /* width: 100%; */
 }
 
 .setting input {
     float: left;
     margin: 0px;
+    display: inline;
 }
 
 input#menu {
@@ -141,7 +147,7 @@ input#menu {
     height: 40px;
     margin: 0px;
     font-size: 20px;
-    background-color: #4200bdb8;
+    background-color: #444b60b8;
     border-radius: 10px;
     position: relative;
 }

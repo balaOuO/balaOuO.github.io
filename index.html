@@ -34,16 +34,28 @@
             <div class="menu-list">
                 <ul>
                     <li class="setting">
-                        <label for="img_size">Image size (Coming soon)</label>
-                        <input type="range" id="img_size" value="1" min="0.1" max="5" step="0.1">
-                    </li>
-                    <li class="setting"">
-                        <label for=" line_color">Line color (Coming soon)</label>
-                        <input type="color" value="#FFCCCC">
+                        <label for="img_size">Image size</label>
+                        <div style="display: flex;">
+                            <input type="range" id="img_size" value="1" min="0.5" max="2" step="0.1"
+                                oninput="change_image_size(this.value)">
+                            <span id="img_size_txt" style="white-space: pre;"> x1</span>
+                        </div>
                     </li>
                     <li class="setting">
-                        <button id="save" onclick="save()">Save</button>
+                        <label for="Line_width">Line width</label>
+                        <div style="display: flex;">
+                            <input type="range" id="Line_width" value="5" min="1" max="20" step="1"
+                                oninput="change_Line_width(this.value)">
+                            <span id="Line_width_txt" style="white-space: pre;"> 5px</span>
+                        </div>
                     </li>
+                    <li class="setting">
+                        <label for="line_color">Line color</label>
+                        <input id="line_color" type="color" value="#FFCCCC" oninput="change_color(this.value)">
+                    </li>
+                    <!-- <li class="setting">
+                        <button id="save" onclick="save()">Save</button>
+                    </li> -->
                 </ul>
             </div>
 

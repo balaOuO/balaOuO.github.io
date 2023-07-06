@@ -9,13 +9,15 @@ var speed = 0.001;
 var max_speed;
 var stop_flag = false;
 var start_btn = document.getElementById("start_but");
-const preview = document.getElementById("preview");
+var preview = document.getElementById("preview");
+var img_size_txt = document.getElementById("img_size_txt");
+var Line_width_txt = document.getElementById("Line_width_txt");
 
 var line_color = "#FFCCCC";
 var line_height = 5;
 var image_size = 1;
 
-
+// image resize
 const observer = new ResizeObserver(function (entries) {
     img_w = preview.width;
     img_h = preview.height;
@@ -30,6 +32,7 @@ observer.observe(preview, {
     box: "border-box",
 });
 
+// save (no function now)
 function save() {
     if (!is_upload) {
         alert("Please upload the image first.");
@@ -38,12 +41,38 @@ function save() {
         alert("Please stop operating first.");
     }
     else {
+        // preview.style.transform = `scale(${image_size})`;
+        // canvars.style.transform = `scale(${image_size})`;
+        console.log(`scale(${image_size})`)
         ctx.clearRect(0, 0, img_w, img_h);
         ctx.fillStyle = line_color;
         ctx.fillRect(0, line_pos, img_w, line_height);
     }
 }
 
+// setting
+function change_image_size(size) {
+    preview.style.transform = `scale(${size})`;
+    canvars.style.transform = `scale(${size})`;
+    img_size_txt.textContent = ` x${size}`;
+}
+
+function change_color(color) {
+    line_color = color;
+    ctx.clearRect(0, 0, img_w, img_h);
+    ctx.fillStyle = line_color;
+    ctx.fillRect(0, line_pos, img_w, line_height);
+}
+
+function change_Line_width(width) {
+    line_height = width
+    Line_width_txt.textContent = ` ${width}px`
+    ctx.clearRect(0, 0, img_w, img_h);
+    ctx.fillStyle = line_color;
+    ctx.fillRect(0, line_pos, img_w, line_height);
+}
+
+// upload image
 function handleFiles(files) {
     const file = files[0];
     const reader = new FileReader();
@@ -67,7 +96,7 @@ function handleFiles(files) {
     reader.readAsDataURL(file);
 }
 
-
+// draw line
 function speed_curve() {
     m = 750;
     if (now_cycle <= total_cycle) {
@@ -85,12 +114,12 @@ function speed_curve() {
 function draw() {
     now_cycle += 1;
 
+    speed = speed_curve();
+    line_pos += speed;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = line_color;
     ctx.fillRect(0, line_pos, img_w, line_height);
-
-    speed = speed_curve();
-    line_pos += speed;
 
     if (line_pos > img_h) {
         line_pos -= img_h;
@@ -104,6 +133,7 @@ function draw() {
 
 }
 
+// start btn
 function control() {
     element = document.getElementById("start_but");
     if (is_upload) {
