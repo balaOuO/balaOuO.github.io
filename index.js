@@ -13,7 +13,7 @@ var preview = document.getElementById("preview");
 var img_size_txt = document.getElementById("img_size_txt");
 var Line_width_txt = document.getElementById("Line_width_txt");
 
-var line_color = "#FFCCCC";
+var line_color = "#F75000";
 var line_height = 5;
 var image_size = 1;
 
@@ -33,22 +33,20 @@ observer.observe(preview, {
 });
 
 // save (no function now)
-function save() {
-    if (!is_upload) {
-        alert("Please upload the image first.");
-    }
-    else if (!button_isblue) {
-        alert("Please stop operating first.");
-    }
-    else {
-        // preview.style.transform = `scale(${image_size})`;
-        // canvars.style.transform = `scale(${image_size})`;
-        console.log(`scale(${image_size})`)
-        ctx.clearRect(0, 0, img_w, img_h);
-        ctx.fillStyle = line_color;
-        ctx.fillRect(0, line_pos, img_w, line_height);
-    }
-}
+// function save() {
+//     if (!is_upload) {
+//         alert("Please upload the image first.");
+//     }
+//     else if (!button_isblue) {
+//         alert("Please stop operating first.");
+//     }
+//     else {
+//         console.log(`scale(${image_size})`)
+//         ctx.clearRect(0, 0, img_w, img_h);
+//         ctx.fillStyle = line_color;
+//         ctx.fillRect(0, line_pos, img_w, line_height);
+//     }
+// }
 
 // setting
 function change_image_size(size) {

@@ -48,7 +48,6 @@
 /*
 點選選單變叉叉
 */
-
 #menu:checked+.line .menu {
     background: transparent;
 }
@@ -71,17 +70,18 @@
 選單向外推
 */
 #menu:checked~.menu-list {
-    width: 500px;
-    height: 500px;
+    width: 250px;
+    height: 250px;
     outline-color: #9999FF;
     outline-offset: 5px;
+    transition: all .6s, outline-offset 0.3s, outline-color 0.3s, width .6s .5s, height .6s;
 }
 
 .line:hover+.menu-list {
     outline-color: #9999FF;
     outline-offset: 5px;
+    /* transition: outline-offset 0.3s, outline-color 0.3s; */
 }
-
 
 .menu-list {
     width: 48px;
@@ -99,7 +99,7 @@
     /* box-shadow: 0 2px 4px rgba(0, 0, 0, .1); */
     position: absolute;
     z-index: 0;
-    transition: all .6s, outline-offset 0.3s;
+    transition: all .6s, outline-offset 0.3s, outline-color 0.3s, width .6s, height .6s .5s;
     overflow: hidden;
 }
 
