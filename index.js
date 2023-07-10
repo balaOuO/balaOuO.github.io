@@ -72,6 +72,20 @@ function change_Line_width(width) {
     ctx.fillRect(0, line_pos, img_w, line_height);
 }
 
+// function bongo_cat_check(show) {
+//     var bongo_cat_btn = document.getElementById("bongo-cat-btn");
+//     var bongo_cat = document.getElementById("bongo-cat");
+//     if (!show) {
+//         bongo_cat_btn.innerText = "show";
+//         bongo_cat.style.opacity = 0;
+//     }
+//     else {
+//         bongo_cat_btn.innerText = "hide";
+//         bongo_cat.style.opacity = 1;
+//     }
+// }
+
+
 // upload image
 function handleFiles(files) {
     const file = files[0];

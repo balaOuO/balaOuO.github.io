@@ -88,6 +88,7 @@ body {
     border: 0;
     outline: 3px #09203f solid;
     border-radius: 10px;
+    cursor: pointer;
 
     margin: 10px;
     font-size: 20px;
