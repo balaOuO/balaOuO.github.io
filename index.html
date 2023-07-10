@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <!-- <div style="width: 100vw; height: 100vh;">
+        <iframe src="bongo-cat/bongo-cat.html" frameborder="0"></iframe>
+    </div> -->
     <header class="header">
         <div class="my_github">
             <img class="github_head_picture" src="image/github_head.jpg">
@@ -16,6 +19,8 @@
         </div>
         <h1>Online Picture Lottery</h1>
     </header>
+    <iframe id="bongo-cat" src="bongo-cat/bongo-cat.html" frameborder="0"
+        style="position: fixed; height: 100vh; width: 100vw; top: 0; z-index: -1;"></iframe>
 
     <div class="container">
         <div class="main_screen">
@@ -53,6 +58,11 @@
                         <label for="line_color">Line color</label>
                         <input id="line_color" type="color" value="#FFCCCC" oninput="change_color(this.value)">
                     </li>
+                    <!-- <li class="setting">
+                        <label for="bongo-cat-display">bongo cat</label>
+                        <input type="checkbox" id="bongo-cat-display" checked>
+                        <label>show</label>
+                    </li> -->
                     <!-- <li class="setting">
                         <button id="save" onclick="save()">Save</button>
                     </li> -->

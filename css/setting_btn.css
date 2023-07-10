@@ -138,6 +138,8 @@
     display: inline;
 }
 
+/* #bongo-cat-display input */
+
 input#menu {
     display: none;
 }
