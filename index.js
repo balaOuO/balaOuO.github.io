@@ -157,7 +157,7 @@ function control() {
             // element.style.color = "#860d09";
             element.innerHTML = `<span style=" font-size: 20px; color : #FF9797; ">stop</span>`;
 
-            max_speed = Math.random() * 10 + 15;
+            max_speed = Math.random() * img_h * 0.016129 + img_h * 0.024193;
             total_cycle = Math.random() * 200 + 150;
             now_cycle = 0;
             speed = 0.001
