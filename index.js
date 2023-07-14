@@ -8,6 +8,7 @@ var now_cycle = 0, total_cycle;
 var speed = 0.001;
 var max_speed;
 var stop_flag = false;
+var ishorizontal = false;
 var start_btn = document.getElementById("start_but");
 var preview = document.getElementById("preview");
 var img_size_txt = document.getElementById("img_size_txt");
@@ -17,15 +18,19 @@ var line_color = "#F75000";
 var line_height = 5;
 var image_size = 1;
 
+function update() {
+    ctx.clearRect(0, 0, img_w, img_h);
+    ctx.fillStyle = line_color;
+    ctx.fillRect(line_pos * ishorizontal, line_pos * !ishorizontal, img_w * !ishorizontal + line_height * ishorizontal, line_height * !ishorizontal + img_h * ishorizontal);
+}
+
 // image resize
 const observer = new ResizeObserver(function (entries) {
     img_w = preview.width;
     img_h = preview.height;
     canvars.width = img_w;
     canvars.height = img_h;
-    ctx.clearRect(0, 0, img_w, img_h);
-    ctx.fillStyle = line_color;
-    ctx.fillRect(0, line_pos, img_w, line_height);
+    update();
 });
 
 observer.observe(preview, {
@@ -57,17 +62,37 @@ function change_image_size(size) {
 
 function change_color(color) {
     line_color = color;
-    ctx.clearRect(0, 0, img_w, img_h);
-    ctx.fillStyle = line_color;
-    ctx.fillRect(0, line_pos, img_w, line_height);
+    update();
 }
 
 function change_Line_width(width) {
     line_height = width
     Line_width_txt.textContent = ` ${width}px`
-    ctx.clearRect(0, 0, img_w, img_h);
-    ctx.fillStyle = line_color;
-    ctx.fillRect(0, line_pos, img_w, line_height);
+    update();
+}
+
+function line_direction_check(show) {
+    if (!is_upload) {
+        alert("Please upload the image first.");
+    }
+    else if (!button_isblue) {
+        alert("Please stop operating first.");
+    }
+    else {
+        var line_direction_btn = document.getElementById("line_direction_btn");
+        ishorizontal = !show;
+        if (!show) {
+            line_direction_btn.innerText = "vertical";
+            // line_pos = Math.random() * img_w;
+            line_pos = img_w * (line_pos / img_h);
+        }
+        else {
+            line_direction_btn.innerText = "horizontal";
+            // line_pos = Math.random() * img_h;
+            line_pos = img_h * (line_pos / img_w);
+        }
+        update();
+    }
 }
 
 // function bongo_cat_check(show) {
@@ -129,12 +154,10 @@ function draw() {
     speed = speed_curve();
     line_pos += speed;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = line_color;
-    ctx.fillRect(0, line_pos, img_w, line_height);
+    update();
 
-    if (line_pos > img_h) {
-        line_pos -= img_h;
+    if (line_pos > img_h * !ishorizontal + img_w * ishorizontal) {
+        line_pos -= img_h * !ishorizontal + img_w * ishorizontal;
     }
 
     if (speed <= 0) {
@@ -157,7 +180,12 @@ function control() {
             // element.style.color = "#860d09";
             element.innerHTML = `<span style=" font-size: 20px; color : #FF9797; ">stop</span>`;
 
-            max_speed = Math.random() * img_h * 0.016129 + img_h * 0.024193;
+            if (!ishorizontal) {
+                max_speed = Math.random() * img_h * 0.016129 + img_h * 0.024193;
+            }
+            else {
+                max_speed = Math.random() * img_w * 0.016129 + img_w * 0.024193;
+            }
             total_cycle = Math.random() * 200 + 150;
             now_cycle = 0;
             speed = 0.001

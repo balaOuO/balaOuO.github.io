@@ -138,6 +138,24 @@
     display: inline;
 }
 
+#line_direction {
+    display: none;
+}
+
+#line_direction_btn {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #585759;
+    border-radius: 10px;
+    text-align: center;
+    padding: auto;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* #bongo-cat-display:checked~#bongo-cat-btn {} */
+
 /* #bongo-cat {
     transition: opacity 1s;
 }

@@ -55,6 +55,19 @@
                         <label for="line_color">Line color</label>
                         <input id="line_color" type="color" value="#F75000" oninput="change_color(this.value)">
                     </li>
+                    <li class="setting">
+                        <label for="line_direction">Line direction</label>
+                        <div>
+                            <input type="checkbox" id="line_direction" checked
+                                onchange="line_direction_check(this.checked)">
+                            <label for="line_direction">
+                                <div style="height: 100%; width: 100%;"></div>
+                                <div id="line_direction_btn">
+                                    horizontal
+                                </div>
+                            </label>
+                        </div>
+                    </li>
                     <!-- <li class="setting">
                         <label for="bongo-cat-display">bongo cat</label>
                         <div>
