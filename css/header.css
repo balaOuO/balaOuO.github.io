@@ -25,7 +25,7 @@
   height: 30px;
   border-radius: 15px;
   float: left;
-  transition: transform 2s, width 2s, height 2s, border-radius 2s;
+  transition: transform 4s, width 2s, height 2s, border-radius 2s;
   transform-origin: 50% 50%;
   overflow: hidden;
   margin: 0;
@@ -39,7 +39,7 @@
 }
 .header .github_head_picture:hover #img,
 .header .github_head_picture #img:hover {
-  transform: rotate(3600deg);
+  transform: rotate(7200deg);
   width: 300px;
   height: 300px;
   border-radius: 150px;

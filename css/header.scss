@@ -29,7 +29,7 @@
             height: $img_size;
             border-radius: 0.5 * $img_size;
             float: left;
-            transition: transform 2s, width 2s, height 2s, border-radius 2s;
+            transition: transform 4s, width 2s, height 2s, border-radius 2s;
             transform-origin: 50% 50%;
             overflow: hidden;
             margin: 0;
@@ -45,7 +45,7 @@
 
         &:hover #img,
         #img:hover {
-            transform: rotate(3600deg);
+            transform: rotate(7200deg);
             width: 10 * $img_size;
             height: 10 * $img_size;
             border-radius: 5 * $img_size;
