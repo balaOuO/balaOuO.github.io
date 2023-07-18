@@ -25,7 +25,7 @@ body {
 }
 
 
-.header {
+/* .header {
     box-sizing: border-box;
     background-color: black;
     padding: 15px;
@@ -33,7 +33,6 @@ body {
     display: flex;
     width: 100vw;
     align-items: center;
-    /* overflow-x: hidden; */
 }
 
 .header .my_github {
@@ -63,7 +62,7 @@ body {
     margin-left: 20px;
     width: 50%;
     flex-wrap: nowrap;
-}
+} */
 
 .container {
     box-sizing: border-box;

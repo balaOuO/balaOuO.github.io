@@ -5,13 +5,16 @@
     <meta charset="utf-8" />
     <title>Online picture lottery</title>
     <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/setting_btn.css" />
 </head>
 
 <body>
     <header class="header">
         <div class="my_github">
-            <img class="github_head_picture" src="image/github_head.jpg">
+            <span class="github_head_picture">
+                <img src="image/github_head.jpg">
+            </span>
             <a class="my_github_link" href="https://github.com/balaOuO">balaOuO</a>
         </div>
         <h1>Online Picture Lottery</h1>
@@ -61,7 +64,6 @@
                             <input type="checkbox" id="line_direction" checked
                                 onchange="line_direction_check(this.checked)">
                             <label for="line_direction">
-                                <div style="height: 100%; width: 100%;"></div>
                                 <div id="line_direction_btn">
                                     horizontal
                                 </div>
